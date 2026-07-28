@@ -124,7 +124,7 @@
       background-color: #5352ed;
     }
 
-    /* Discount / Contact Section */
+    /* Discount Promo Banner */
     .promo-banner {
       background: #ffffff;
       border: 2px dashed var(--accent);
@@ -140,21 +140,51 @@
       margin-bottom: 0.5rem;
     }
 
-    .email-box {
-      background-color: #fff8e7;
-      border: 1px solid #ffeaa7;
+    .badge {
       display: inline-block;
+      background-color: #2ed573;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .code-box {
+      background-color: #fff8e7;
+      border: 2px dashed #ffeaa7;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
       padding: 0.8rem 1.5rem;
       border-radius: 8px;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #d63031;
       margin: 1rem 0;
-      user-select: all; /* Makes it easy to copy with one click */
-      cursor: pointer;
+      letter-spacing: 2px;
     }
 
-    /* Shop CTA Banner */
+    .copy-btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .copy-btn:hover {
+      background-color: #eccc68;
+    }
+
+    /* Shop Direct CTA */
     .shop-section {
       background: linear-gradient(135deg, #74b9ff, #a29bfe);
       color: white;
@@ -213,24 +243,28 @@
 
     </div>
 
-    <!-- Email Discount Promo Section -->
+    <!-- Special Discount Section -->
     <div class="promo-banner">
-      <h2>🎁 Special Discount Offer!</h2>
-      <p>Want a discount coupon code for any eBook or full coloring book in my store?</p>
-      <p>Simply send an email to:</p>
+      <h2>🎉 Special Discount Code!</h2>
+      <p style="font-size: 1.1rem; font-weight: 600;">Here is a special discount code for my coloring books in my shop:</p>
       
-      <!-- Replace with your actual email address -->
-      <div class="email-box" title="Click to copy or highlight">juan819171@gmail.com</div>
-      
-      <p style="font-size: 0.9rem; color: var(--light-text);">Just say hi or ask for a coupon, and I'll send back your discount code right away!</p>
+      <div class="code-box">
+        <span id="couponCode">JAYDISCOUNT</span>
+        <button class="copy-btn" onclick="copyCoupon()">Copy Code</button>
+      </div>
+
+      <div>
+        <p style="font-size: 1.2rem; font-weight: bold; color: var(--primary);">30% Off Commissions</p>
+        <span class="badge">Never Expires</span>
+      </div>
     </div>
 
     <!-- Shop Direct CTA -->
     <div class="shop-section">
       <h2>Ready for More Fun?</h2>
-      <p>Explore complete coloring book collections and instant PDF downloads on my official Ko-fi shop.</p>
+      <p>Use your discount code and explore complete coloring book collections on my shop!</p>
       <br>
-      <a href="https://ko-fi.com/s/3409c0c1aa" class="cta-button" style="background-color: #ffffff; color: #6c5ce7;" target="_blank" rel="noopener">🛒 Browse & Buy Full Books</a>
+      <a href="https://ko-fi.com/s/3409c0c1aa" class="cta-button" style="background-color: #ffffff; color: #6c5ce7;" target="_blank" rel="noopener">🛒 Shop Now with 30% Off</a>
     </div>
 
   </div>
@@ -238,6 +272,19 @@
   <footer>
     <p>&copy; Digital Coloring Books. All rights reserved.</p>
   </footer>
+
+  <script>
+    function copyCoupon() {
+      const code = document.getElementById('couponCode').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.innerText = 'Copied!';
+        setTimeout(() => {
+          btn.innerText = 'Copy Code';
+        }, 2000);
+      });
+    }
+  </script>
 
 </body>
 </html>
